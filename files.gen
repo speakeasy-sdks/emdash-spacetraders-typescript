@@ -5,6 +5,7 @@ src/sdk/fleet.ts
 src/sdk/systems.ts
 src/sdk/sdk.ts
 .eslintrc.yml
+.gitignore
 jest.config.js
 package-lock.json
 package.json
