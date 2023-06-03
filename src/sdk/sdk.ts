@@ -35,11 +35,31 @@ export type SDKProps = {
      * Allows overriding the default axios client used by the SDK
      */
     defaultClient?: AxiosInstance;
+
+    /**
+     * Allows overriding the default server used by the SDK
+     */
+    serverIdx?: number;
+
     /**
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
 };
+
+export class SDKConfiguration {
+    defaultClient: AxiosInstance;
+    securityClient: AxiosInstance;
+    serverURL: string;
+    serverDefaults: any;
+    language = "typescript";
+    sdkVersion = "1.2.0";
+    genVersion = "2.35.3";
+
+    public constructor(init?: Partial<SDKConfiguration>) {
+        Object.assign(this, init);
+    }
+}
 
 /**
  * SpaceTraders is an open-universe game and learning platform that offers a set of HTTP endpoints to control a fleet of ships and explore a multiplayer universe.
@@ -84,71 +104,38 @@ export class SpaceTraders {
      */
     public systems: Systems;
 
-    public _defaultClient: AxiosInstance;
-    public _securityClient: AxiosInstance;
-    public _serverURL: string;
-    private _language = "typescript";
-    private _sdkVersion = "1.1.1";
-    private _genVersion = "2.34.7";
-    private _globals: any;
+    private sdkConfiguration: SDKConfiguration;
 
     constructor(props?: SDKProps) {
-        this._serverURL = props?.serverURL ?? ServerList[0];
+        let serverURL = props?.serverURL;
+        const serverIdx = props?.serverIdx ?? 0;
 
-        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase))
-                security = new shared.Security(props.security);
-            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
-        } else {
-            this._securityClient = this._defaultClient;
+        if (!serverURL) {
+            serverURL = ServerList[serverIdx];
         }
 
-        this.agents = new Agents(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        let securityClient = defaultClient;
 
-        this.contracts = new Contracts(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase)) {
+                security = new shared.Security(props.security);
+            }
+            securityClient = utils.createSecurityClient(defaultClient, security);
+        }
 
-        this.factions = new Factions(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.sdkConfiguration = new SDKConfiguration({
+            defaultClient: defaultClient,
+            securityClient: securityClient,
+            serverURL: serverURL,
+        });
 
-        this.fleet = new Fleet(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
-
-        this.systems = new Systems(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.agents = new Agents(this.sdkConfiguration);
+        this.contracts = new Contracts(this.sdkConfiguration);
+        this.factions = new Factions(this.sdkConfiguration);
+        this.fleet = new Fleet(this.sdkConfiguration);
+        this.systems = new Systems(this.sdkConfiguration);
     }
 
     /**
@@ -158,16 +145,20 @@ export class SpaceTraders {
      * Return the status of the game server.
      */
     async getStatus(config?: AxiosRequestConfig): Promise<operations.GetStatusResponse> {
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/";
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -230,7 +221,10 @@ export class SpaceTraders {
             req = new operations.RegisterRequestBody(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/register";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -243,13 +237,14 @@ export class SpaceTraders {
             }
         }
 
-        const client: AxiosInstance = this._securityClient || this._defaultClient;
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,

@@ -4,33 +4,17 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
  * Fleet
  */
 export class Fleet {
-    _defaultClient: AxiosInstance;
-    _securityClient: AxiosInstance;
-    _serverURL: string;
-    _language: string;
-    _sdkVersion: string;
-    _genVersion: string;
+    private sdkConfiguration: SDKConfiguration;
 
-    constructor(
-        defaultClient: AxiosInstance,
-        securityClient: AxiosInstance,
-        serverURL: string,
-        language: string,
-        sdkVersion: string,
-        genVersion: string
-    ) {
-        this._defaultClient = defaultClient;
-        this._securityClient = securityClient;
-        this._serverURL = serverURL;
-        this._language = language;
-        this._sdkVersion = sdkVersion;
-        this._genVersion = genVersion;
+    constructor(sdkConfig: SDKConfiguration) {
+        this.sdkConfiguration = sdkConfig;
     }
 
     /**
@@ -52,19 +36,25 @@ export class Fleet {
             req = new operations.CreateChartRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/chart", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateChartSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -114,19 +104,25 @@ export class Fleet {
             req = new operations.CreateShipShipScanRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/scan/ships", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateShipShipScanSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -177,19 +173,25 @@ export class Fleet {
             req = new operations.CreateShipSystemScanRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/scan/systems", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateShipSystemScanSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -240,7 +242,10 @@ export class Fleet {
             req = new operations.CreateShipWaypointScanRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/my/ships/{shipSymbol}/scan/waypoints",
@@ -250,13 +255,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateShipWaypointScanSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -309,19 +317,25 @@ export class Fleet {
             req = new operations.CreateSurveyRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/survey", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.CreateSurveySecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -373,19 +387,25 @@ export class Fleet {
             req = new operations.DockShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/dock", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.DockShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -435,7 +455,10 @@ export class Fleet {
             req = new operations.ExtractResourcesRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/extract", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -451,13 +474,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.ExtractResourcesSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -508,19 +534,25 @@ export class Fleet {
             req = new operations.GetMyShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetMyShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -570,19 +602,25 @@ export class Fleet {
             req = new operations.GetMyShipCargoRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/cargo", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetMyShipCargoSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -632,20 +670,26 @@ export class Fleet {
             req = new operations.GetMyShipsRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/my/ships";
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetMyShipsSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -699,19 +743,25 @@ export class Fleet {
             req = new operations.GetShipCooldownRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/cooldown", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetShipCooldownSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -763,19 +813,25 @@ export class Fleet {
             req = new operations.GetShipNavRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/nav", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.GetShipNavSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -825,7 +881,10 @@ export class Fleet {
             req = new operations.JettisonRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/jettison", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -841,13 +900,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.JettisonSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -898,7 +960,10 @@ export class Fleet {
             req = new operations.JumpShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/jump", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -914,13 +979,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.JumpShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -975,7 +1043,10 @@ export class Fleet {
             req = new operations.NavigateShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/navigate", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -991,13 +1062,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.NavigateShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1045,7 +1119,10 @@ export class Fleet {
             req = new operations.NegotiateContractRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(
             baseURL,
             "/my/ships/{shipSymbol}/negotiate/contract",
@@ -1065,13 +1142,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.NegotiateContractSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1124,19 +1204,25 @@ export class Fleet {
             req = new operations.OrbitShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/orbit", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.OrbitShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1186,7 +1272,10 @@ export class Fleet {
             req = new operations.PatchShipNavRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/nav", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1202,13 +1291,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.PatchShipNavSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1259,7 +1351,10 @@ export class Fleet {
             req = new operations.PurchaseCargoRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/purchase", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1275,13 +1370,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.PurchaseCargoSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1332,7 +1430,10 @@ export class Fleet {
             req = new operations.PurchaseShipRequestBody(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = baseURL.replace(/\/$/, "") + "/my/ships";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1348,13 +1449,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.PurchaseShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1405,19 +1509,25 @@ export class Fleet {
             req = new operations.RefuelShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/refuel", req);
 
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.RefuelShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1467,7 +1577,10 @@ export class Fleet {
             req = new operations.SellCargoRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/sell", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1483,13 +1596,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.SellCargoSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1540,7 +1656,10 @@ export class Fleet {
             req = new operations.ShipRefineRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/refine", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1556,13 +1675,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.ShipRefineSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1613,7 +1735,10 @@ export class Fleet {
             req = new operations.TransferCargoRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/transfer", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1629,13 +1754,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.TransferCargoSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
@@ -1688,7 +1816,10 @@ export class Fleet {
             req = new operations.WarpShipRequest(req);
         }
 
-        const baseURL: string = this._serverURL;
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
         const url: string = utils.generateURL(baseURL, "/my/ships/{shipSymbol}/warp", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
@@ -1704,13 +1835,16 @@ export class Fleet {
         if (!(security instanceof utils.SpeakeasyBase)) {
             security = new operations.WarpShipSecurity(security);
         }
-        const client: AxiosInstance = utils.createSecurityClient(this._defaultClient, security);
+        const client: AxiosInstance = utils.createSecurityClient(
+            this.sdkConfiguration.defaultClient,
+            security
+        );
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
