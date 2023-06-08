@@ -52,7 +52,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.createChart({
   shipSymbol: "molestiae",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: CreateChartResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -76,7 +76,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.createShipShipScan({
   shipSymbol: "minus",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: CreateShipShipScanResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -100,7 +100,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.createShipSystemScan({
   shipSymbol: "placeat",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: CreateShipSystemScanResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -124,7 +124,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.createShipWaypointScan({
   shipSymbol: "voluptatum",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: CreateShipWaypointScanResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -150,7 +150,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.createSurvey({
   shipSymbol: "iusto",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: CreateSurveyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -176,7 +176,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.dockShip({
   shipSymbol: "excepturi",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: DockShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -216,7 +216,7 @@ sdk.fleet.extractResources({
   },
   shipSymbol: "ipsam",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: ExtractResourcesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -252,7 +252,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.getMyShip({
   shipSymbol: "repellendus",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetMyShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -275,7 +275,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.getMyShipCargo({
   shipSymbol: "sapiente",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetMyShipCargoResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -312,7 +312,7 @@ sdk.fleet.getMyShips({
   limit: 778157,
   page: 140350,
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetMyShipsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -339,7 +339,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.getShipCooldown({
   shipSymbol: "at",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetShipCooldownResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -363,7 +363,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.getShipNav({
   shipSymbol: "at",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetShipNavResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -390,7 +390,7 @@ sdk.fleet.jettison({
   },
   shipSymbol: "quod",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: JettisonResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -417,7 +417,7 @@ sdk.fleet.jumpShip({
   },
   shipSymbol: "esse",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: JumpShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -448,7 +448,7 @@ sdk.fleet.navigateShip({
   },
   shipSymbol: "porro",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: NavigateShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -473,7 +473,7 @@ sdk.fleet.negotiateContract({
   requestBody: "dolorum",
   shipSymbol: "dicta",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: NegotiateContractResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -499,7 +499,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.orbitShip({
   shipSymbol: "nam",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: OrbitShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -526,7 +526,7 @@ sdk.fleet.patchShipNav({
   },
   shipSymbol: "occaecati",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: PatchShipNavResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -554,7 +554,7 @@ sdk.fleet.purchaseCargo({
   },
   shipSymbol: "hic",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: PurchaseCargoResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -592,7 +592,7 @@ sdk.fleet.purchaseShip({
   shipType: ShipType.ShipLightShuttle,
   waypointSymbol: "totam",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: PurchaseShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -616,7 +616,7 @@ const sdk = new SpaceTraders();
 sdk.fleet.refuelShip({
   shipSymbol: "beatae",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: RefuelShipResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -644,7 +644,7 @@ sdk.fleet.sellCargo({
   },
   shipSymbol: "modi",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: SellCargoResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -670,7 +670,7 @@ sdk.fleet.shipRefine({
   },
   shipSymbol: "impedit",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: ShipRefineResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -698,7 +698,7 @@ sdk.fleet.transferCargo({
   },
   shipSymbol: "excepturi",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: TransferCargoResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -727,7 +727,7 @@ sdk.fleet.warpShip({
   },
   shipSymbol: "perferendis",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: WarpShipResponse) => {
   if (res.statusCode == 200) {
     // handle response

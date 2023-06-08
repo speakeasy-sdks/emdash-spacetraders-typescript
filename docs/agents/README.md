@@ -21,7 +21,7 @@ import { GetMyAgentResponse } from "SpaceTradersSDK/dist/sdk/models/operations";
 const sdk = new SpaceTraders();
 
 sdk.agents.getMyAgent({
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetMyAgentResponse) => {
   if (res.statusCode == 200) {
     // handle response

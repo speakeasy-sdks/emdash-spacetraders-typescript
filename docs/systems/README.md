@@ -27,7 +27,7 @@ import { SystemType } from "SpaceTradersSDK/dist/sdk/models/shared";
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -54,7 +54,7 @@ import { MarketTradeGoodSupply, MarketTransactionType, TradeSymbol } from "Space
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -89,7 +89,7 @@ import {
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -116,7 +116,7 @@ import { SystemType, WaypointType } from "SpaceTradersSDK/dist/sdk/models/shared
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -147,7 +147,7 @@ sdk.systems.getSystemWaypoints({
   page: 902599,
   systemSymbol: "fuga",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetSystemWaypointsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,7 +168,7 @@ import { SystemType, WaypointType } from "SpaceTradersSDK/dist/sdk/models/shared
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -195,7 +195,7 @@ import { WaypointTraitSymbol, WaypointType } from "SpaceTradersSDK/dist/sdk/mode
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 

@@ -24,7 +24,7 @@ import { GetStatusResponse } from "SpaceTradersSDK/dist/sdk/models/operations";
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 

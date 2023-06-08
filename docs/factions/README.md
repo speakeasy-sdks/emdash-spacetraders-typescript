@@ -22,7 +22,7 @@ import { FactionTraitSymbol } from "SpaceTradersSDK/dist/sdk/models/shared";
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 
@@ -48,7 +48,7 @@ import { FactionTraitSymbol } from "SpaceTradersSDK/dist/sdk/models/shared";
 
 const sdk = new SpaceTraders({
   security: {
-    agentToken: "YOUR_BEARER_TOKEN_HERE",
+    agentToken: "",
   },
 });
 

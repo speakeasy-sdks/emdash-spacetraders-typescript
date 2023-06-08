@@ -28,7 +28,7 @@ const sdk = new SpaceTraders();
 sdk.contracts.acceptContract({
   contractId: "illum",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: AcceptContractResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -57,7 +57,7 @@ sdk.contracts.deliverContract({
   },
   contractId: "suscipit",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: DeliverContractResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ const sdk = new SpaceTraders();
 sdk.contracts.fulfillContract({
   contractId: "iure",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: FulfillContractResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -105,7 +105,7 @@ const sdk = new SpaceTraders();
 sdk.contracts.getContract({
   contractId: "magnam",
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetContractResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -130,7 +130,7 @@ sdk.contracts.getContracts({
   limit: 891773,
   page: 56713,
 }, {
-  agentToken: "YOUR_BEARER_TOKEN_HERE",
+  agentToken: "",
 }).then((res: GetContractsResponse) => {
   if (res.statusCode == 200) {
     // handle response
