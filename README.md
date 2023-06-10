@@ -39,65 +39,65 @@ sdk.getStatus().then((res: GetStatusResponse) => {
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-### [SpaceTraders SDK](docs/spacetraders/README.md)
+### [SpaceTraders SDK](docs/sdks/spacetraders/README.md)
 
-* [getStatus](docs/spacetraders/README.md#getstatus) - Get Status
-* [register](docs/spacetraders/README.md#register) - Register New Agent
+* [getStatus](docs/sdks/spacetraders/README.md#getstatus) - Get Status
+* [register](docs/sdks/spacetraders/README.md#register) - Register New Agent
 
-### [agents](docs/agents/README.md)
+### [agents](docs/sdks/agents/README.md)
 
-* [getMyAgent](docs/agents/README.md#getmyagent) - My Agent Details
+* [getMyAgent](docs/sdks/agents/README.md#getmyagent) - My Agent Details
 
-### [contracts](docs/contracts/README.md)
+### [contracts](docs/sdks/contracts/README.md)
 
-* [acceptContract](docs/contracts/README.md#acceptcontract) - Accept Contract
-* [deliverContract](docs/contracts/README.md#delivercontract) - Deliver Contract
-* [fulfillContract](docs/contracts/README.md#fulfillcontract) - Fulfill Contract
-* [getContract](docs/contracts/README.md#getcontract) - Get Contract
-* [getContracts](docs/contracts/README.md#getcontracts) - List Contracts
+* [acceptContract](docs/sdks/contracts/README.md#acceptcontract) - Accept Contract
+* [deliverContract](docs/sdks/contracts/README.md#delivercontract) - Deliver Contract
+* [fulfillContract](docs/sdks/contracts/README.md#fulfillcontract) - Fulfill Contract
+* [getContract](docs/sdks/contracts/README.md#getcontract) - Get Contract
+* [getContracts](docs/sdks/contracts/README.md#getcontracts) - List Contracts
 
-### [factions](docs/factions/README.md)
+### [factions](docs/sdks/factions/README.md)
 
-* [getFaction](docs/factions/README.md#getfaction) - Get Faction
-* [getFactions](docs/factions/README.md#getfactions) - List Factions
+* [getFaction](docs/sdks/factions/README.md#getfaction) - Get Faction
+* [getFactions](docs/sdks/factions/README.md#getfactions) - List Factions
 
-### [fleet](docs/fleet/README.md)
+### [fleet](docs/sdks/fleet/README.md)
 
-* [createChart](docs/fleet/README.md#createchart) - Create Chart
-* [createShipShipScan](docs/fleet/README.md#createshipshipscan) - Scan Ships
-* [createShipSystemScan](docs/fleet/README.md#createshipsystemscan) - Scan Systems
-* [createShipWaypointScan](docs/fleet/README.md#createshipwaypointscan) - Scan Waypoints
-* [createSurvey](docs/fleet/README.md#createsurvey) - Create Survey
-* [dockShip](docs/fleet/README.md#dockship) - Dock Ship
-* [extractResources](docs/fleet/README.md#extractresources) - Extract Resources
-* [getMyShip](docs/fleet/README.md#getmyship) - Get Ship
-* [getMyShipCargo](docs/fleet/README.md#getmyshipcargo) - Get Ship Cargo
-* [getMyShips](docs/fleet/README.md#getmyships) - List Ships
-* [getShipCooldown](docs/fleet/README.md#getshipcooldown) - Get Ship Cooldown
-* [getShipNav](docs/fleet/README.md#getshipnav) - Get Ship Nav
-* [jettison](docs/fleet/README.md#jettison) - Jettison Cargo
-* [jumpShip](docs/fleet/README.md#jumpship) - Jump Ship
-* [navigateShip](docs/fleet/README.md#navigateship) - Navigate Ship
-* [negotiateContract](docs/fleet/README.md#negotiatecontract) - Negotiate Contract
-* [orbitShip](docs/fleet/README.md#orbitship) - Orbit Ship
-* [patchShipNav](docs/fleet/README.md#patchshipnav) - Patch Ship Nav
-* [purchaseCargo](docs/fleet/README.md#purchasecargo) - Purchase Cargo
-* [purchaseShip](docs/fleet/README.md#purchaseship) - Purchase Ship
-* [refuelShip](docs/fleet/README.md#refuelship) - Refuel Ship
-* [sellCargo](docs/fleet/README.md#sellcargo) - Sell Cargo
-* [shipRefine](docs/fleet/README.md#shiprefine) - Ship Refine
-* [transferCargo](docs/fleet/README.md#transfercargo) - Transfer Cargo
-* [warpShip](docs/fleet/README.md#warpship) - Warp Ship
+* [createChart](docs/sdks/fleet/README.md#createchart) - Create Chart
+* [createShipShipScan](docs/sdks/fleet/README.md#createshipshipscan) - Scan Ships
+* [createShipSystemScan](docs/sdks/fleet/README.md#createshipsystemscan) - Scan Systems
+* [createShipWaypointScan](docs/sdks/fleet/README.md#createshipwaypointscan) - Scan Waypoints
+* [createSurvey](docs/sdks/fleet/README.md#createsurvey) - Create Survey
+* [dockShip](docs/sdks/fleet/README.md#dockship) - Dock Ship
+* [extractResources](docs/sdks/fleet/README.md#extractresources) - Extract Resources
+* [getMyShip](docs/sdks/fleet/README.md#getmyship) - Get Ship
+* [getMyShipCargo](docs/sdks/fleet/README.md#getmyshipcargo) - Get Ship Cargo
+* [getMyShips](docs/sdks/fleet/README.md#getmyships) - List Ships
+* [getShipCooldown](docs/sdks/fleet/README.md#getshipcooldown) - Get Ship Cooldown
+* [getShipNav](docs/sdks/fleet/README.md#getshipnav) - Get Ship Nav
+* [jettison](docs/sdks/fleet/README.md#jettison) - Jettison Cargo
+* [jumpShip](docs/sdks/fleet/README.md#jumpship) - Jump Ship
+* [navigateShip](docs/sdks/fleet/README.md#navigateship) - Navigate Ship
+* [negotiateContract](docs/sdks/fleet/README.md#negotiatecontract) - Negotiate Contract
+* [orbitShip](docs/sdks/fleet/README.md#orbitship) - Orbit Ship
+* [patchShipNav](docs/sdks/fleet/README.md#patchshipnav) - Patch Ship Nav
+* [purchaseCargo](docs/sdks/fleet/README.md#purchasecargo) - Purchase Cargo
+* [purchaseShip](docs/sdks/fleet/README.md#purchaseship) - Purchase Ship
+* [refuelShip](docs/sdks/fleet/README.md#refuelship) - Refuel Ship
+* [sellCargo](docs/sdks/fleet/README.md#sellcargo) - Sell Cargo
+* [shipRefine](docs/sdks/fleet/README.md#shiprefine) - Ship Refine
+* [transferCargo](docs/sdks/fleet/README.md#transfercargo) - Transfer Cargo
+* [warpShip](docs/sdks/fleet/README.md#warpship) - Warp Ship
 
-### [systems](docs/systems/README.md)
+### [systems](docs/sdks/systems/README.md)
 
-* [getJumpGate](docs/systems/README.md#getjumpgate) - Get Jump Gate
-* [getMarket](docs/systems/README.md#getmarket) - Get Market
-* [getShipyard](docs/systems/README.md#getshipyard) - Get Shipyard
-* [getSystem](docs/systems/README.md#getsystem) - Get System
-* [getSystemWaypoints](docs/systems/README.md#getsystemwaypoints) - List Waypoints
-* [getSystems](docs/systems/README.md#getsystems) - List Systems
-* [getWaypoint](docs/systems/README.md#getwaypoint) - Get Waypoint
+* [getJumpGate](docs/sdks/systems/README.md#getjumpgate) - Get Jump Gate
+* [getMarket](docs/sdks/systems/README.md#getmarket) - Get Market
+* [getShipyard](docs/sdks/systems/README.md#getshipyard) - Get Shipyard
+* [getSystem](docs/sdks/systems/README.md#getsystem) - Get System
+* [getSystemWaypoints](docs/sdks/systems/README.md#getsystemwaypoints) - List Waypoints
+* [getSystems](docs/sdks/systems/README.md#getsystems) - List Systems
+* [getWaypoint](docs/sdks/systems/README.md#getwaypoint) - Get Waypoint
 <!-- End SDK Available Operations -->
 
 ### Maturity

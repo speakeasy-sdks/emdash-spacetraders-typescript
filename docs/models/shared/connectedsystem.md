@@ -1,0 +1,14 @@
+# ConnectedSystem
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `distance`                                                                 | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `factionSymbol`                                                            | *string*                                                                   | :heavy_minus_sign:                                                         | The symbol of the faction that owns the connected jump gate in the system. |
+| `sectorSymbol`                                                             | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `symbol`                                                                   | *string*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `type`                                                                     | [SystemType](../../models/shared/systemtype.md)                            | :heavy_check_mark:                                                         | The type of waypoint.                                                      |
+| `x`                                                                        | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |
+| `y`                                                                        | *number*                                                                   | :heavy_check_mark:                                                         | N/A                                                                        |

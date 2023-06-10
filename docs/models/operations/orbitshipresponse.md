@@ -1,0 +1,11 @@
+# OrbitShipResponse
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `contentType`                                                                             | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `orbitShip200Response`                                                                    | [OrbitShipOrbitShip200Response](../../models/operations/orbitshiporbitship200response.md) | :heavy_minus_sign:                                                                        | The ship has successfully moved into orbit at it's current location.                      |
+| `statusCode`                                                                              | *number*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `rawResponse`                                                                             | [AxiosResponse>](https://axios-http.com/docs/res_schema)                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |

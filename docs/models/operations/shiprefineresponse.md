@@ -1,0 +1,11 @@
+# ShipRefineResponse
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `contentType`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `shipRefine200Response`                                                                       | [ShipRefineShipRefine200Response](../../models/operations/shiprefineshiprefine200response.md) | :heavy_minus_sign:                                                                            | The ship has successfully started refining.                                                   |
+| `statusCode`                                                                                  | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |
+| `rawResponse`                                                                                 | [AxiosResponse>](https://axios-http.com/docs/res_schema)                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |

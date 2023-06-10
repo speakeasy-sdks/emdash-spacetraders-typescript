@@ -1,0 +1,15 @@
+# ShipEngine
+
+The engine determines how quickly a ship travels between waypoints.
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `condition`                                                                           | *number*                                                                              | :heavy_minus_sign:                                                                    | Condition is a range of 0 to 100 where 0 is completely worn out and 100 is brand new. |
+| `description`                                                                         | *string*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `name`                                                                                | *string*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `requirements`                                                                        | [ShipRequirements](../../models/shared/shiprequirements.md)                           | :heavy_check_mark:                                                                    | The requirements for installation on a ship                                           |
+| `speed`                                                                               | *number*                                                                              | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `symbol`                                                                              | [ShipEngineSymbol](../../models/shared/shipenginesymbol.md)                           | :heavy_check_mark:                                                                    | N/A                                                                                   |
